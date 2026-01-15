@@ -1,10 +1,10 @@
 /**
- * Design Philosophy: Holographic SaaS Minimalist
- * - Clean white background with vibrant gradient accents
- * - Generous whitespace and breathing room
- * - Vibrant fluid gradients (hot pink → purple → electric blue)
- * - Soft shadows and rounded corners
- * - Modern, sophisticated, premium aesthetic
+ * Design Philosophy: Warm Holographic SaaS Minimalist
+ * - Clean white background with warm mesh gradient orbs
+ * - Vibrant warm gradients (hot pink → peach → soft violet)
+ * - Gradient text on headlines for strong visual impact
+ * - Glowing card effects on hover
+ * - Sophisticated, warm, premium aesthetic
  */
 
 import { Button } from "@/components/ui/button";
@@ -31,13 +31,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white text-foreground">
-      {/* Hero Section */}
-      <section className="py-20 md:py-32 px-4">
-        <div className="container">
+      {/* Hero Section with Mesh Gradient */}
+      <section className="relative py-20 md:py-32 px-4 mesh-gradient">
+        <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Text Content */}
             <div className="space-y-8">
-              <div className="inline-block px-4 py-2 bg-gradient-to-r from-pink-50 to-blue-50 rounded-full border border-pink-200">
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-pink-50 to-orange-50 rounded-full border border-pink-200">
                 <span className="text-sm font-semibold gradient-text">
                   AI Automation Agency
                 </span>
@@ -45,7 +45,7 @@ export default function Home() {
 
               <h1 className="text-5xl md:text-6xl font-bold leading-tight">
                 <span className="text-foreground">Building </span>
-                <span className="gradient-text">Intelligent</span>
+                <span className="gradient-text-strong">Intelligent</span>
                 <br />
                 <span className="text-foreground">Ecosystems</span>
               </h1>
@@ -58,7 +58,7 @@ export default function Home() {
 
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:shadow-lg text-white font-bold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
+                className="bg-gradient-to-r from-pink-500 via-orange-400 to-violet-500 hover:shadow-lg text-white font-bold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
               >
                 Automate Your Business
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -78,11 +78,11 @@ export default function Home() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-20 px-4 bg-gradient-to-b from-white to-pink-50/20">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
-              Powered by <span className="gradient-text">Leading Technologies</span>
+              Powered by <span className="gradient-text-strong">Leading Technologies</span>
             </h2>
             <p className="text-lg text-muted-foreground">
               We integrate with industry-leading platforms and tools
@@ -91,14 +91,14 @@ export default function Home() {
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { name: "n8n", icon: Workflow, color: "from-pink-500 to-purple-500" },
-              { name: "OpenAI", icon: Cpu, color: "from-purple-500 to-blue-500" },
-              { name: "Cloud Services", icon: Cloud, color: "from-blue-500 to-cyan-500" },
-              { name: "Analytics", icon: BarChart3, color: "from-cyan-500 to-pink-500" },
+              { name: "n8n", icon: Workflow, color: "from-pink-500 to-orange-400" },
+              { name: "OpenAI", icon: Cpu, color: "from-orange-400 to-violet-500" },
+              { name: "Cloud Services", icon: Cloud, color: "from-violet-500 to-pink-500" },
+              { name: "Analytics", icon: BarChart3, color: "from-pink-500 to-orange-400" },
             ].map((tech, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center p-8 bg-white rounded-2xl soft-shadow hover:soft-shadow-lg transition-all duration-300 hover:scale-105"
+                className="glow-border p-8 bg-white rounded-2xl soft-shadow hover:soft-shadow-lg transition-all duration-300 hover:scale-105"
               >
                 <div
                   className={`w-16 h-16 rounded-full bg-gradient-to-br ${tech.color} flex items-center justify-center mb-4`}
@@ -113,11 +113,11 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 px-4">
-        <div className="container">
+      <section className="py-20 px-4 mesh-gradient">
+        <div className="container relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
-              Our <span className="gradient-text">Services</span>
+              Our <span className="gradient-text-strong">Services</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Cutting-edge AI solutions designed to revolutionize your business operations
@@ -131,32 +131,26 @@ export default function Home() {
                 description:
                   "Custom automation workflows that connect your tools and streamline operations. From simple triggers to complex multi-step processes.",
                 icon: Workflow,
-                gradient: "from-pink-500 to-purple-500",
+                gradient: "from-pink-500 to-orange-400",
               },
               {
                 title: "AI Chatbots",
                 description:
                   "Intelligent conversational agents powered by advanced LLMs. Provide 24/7 support, qualify leads, and enhance customer engagement.",
                 icon: MessageSquare,
-                gradient: "from-purple-500 to-blue-500",
+                gradient: "from-orange-400 to-violet-500",
               },
               {
                 title: "Business Logic",
                 description:
                   "Smart decision-making systems that adapt to your unique processes. Automate complex logic and reduce manual oversight.",
                 icon: Zap,
-                gradient: "from-blue-500 to-cyan-500",
+                gradient: "from-violet-500 to-pink-500",
               },
             ].map((service, idx) => (
               <Card
                 key={idx}
-                className="p-8 bg-white border-2 border-transparent hover:border-transparent soft-shadow hover:soft-shadow-lg transition-all duration-300 hover:scale-105 group relative overflow-hidden rounded-2xl"
-                style={{
-                  backgroundImage: `linear-gradient(white, white), linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(138, 43, 226, 0.1), rgba(0, 123, 255, 0.1))`,
-                  backgroundClip: "padding-box, border-box",
-                  backgroundOrigin: "padding-box, border-box",
-                  borderImage: `linear-gradient(135deg, #ff69b4, #8a2be2, #007bff) 1`,
-                }}
+                className="p-8 bg-white glow-border soft-shadow hover:soft-shadow-lg transition-all duration-300 hover:scale-105 group relative overflow-hidden rounded-2xl"
               >
                 <div className="relative z-10">
                   <div
@@ -180,7 +174,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-20 px-4 bg-gradient-to-b from-pink-50/20 to-white">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             {/* Left: Image */}
@@ -194,7 +188,7 @@ export default function Home() {
 
             {/* Right: Content */}
             <div className="space-y-8">
-              <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-full border border-blue-200">
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-orange-50 to-violet-50 rounded-full border border-orange-200">
                 <span className="text-sm font-semibold gradient-text">
                   LONDON-BASED AI ARCHITECT
                 </span>
@@ -202,7 +196,7 @@ export default function Home() {
 
               <h2 className="text-4xl md:text-5xl font-bold leading-tight">
                 <span className="text-foreground">Architecting the </span>
-                <span className="gradient-text">Future of Work</span>
+                <span className="gradient-text-strong">Future of Work</span>
               </h2>
 
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
@@ -224,7 +218,7 @@ export default function Home() {
 
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:shadow-lg text-white font-bold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
+                className="bg-gradient-to-r from-pink-500 via-orange-400 to-violet-500 hover:shadow-lg text-white font-bold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
               >
                 Learn More
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -235,26 +229,19 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4">
-        <div className="container">
+      <section className="py-20 px-4 mesh-gradient">
+        <div className="container relative z-10">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                Book a <span className="gradient-text">Consultation</span>
+                Book a <span className="gradient-text-strong">Consultation</span>
               </h2>
               <p className="text-lg text-muted-foreground">
                 Let's discuss how AI automation can transform your business
               </p>
             </div>
 
-            <Card className="p-8 bg-white border-2 border-transparent soft-shadow rounded-2xl"
-              style={{
-                backgroundImage: `linear-gradient(white, white), linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(138, 43, 226, 0.1), rgba(0, 123, 255, 0.1))`,
-                backgroundClip: "padding-box, border-box",
-                backgroundOrigin: "padding-box, border-box",
-                borderImage: `linear-gradient(135deg, #ff69b4, #8a2be2, #007bff) 1`,
-              }}
-            >
+            <Card className="p-8 bg-white glow-border soft-shadow rounded-2xl">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-foreground font-semibold">
@@ -267,7 +254,7 @@ export default function Home() {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     required
-                    className="bg-white border-gray-200 focus:border-purple-500 focus:ring-purple-500 rounded-lg transition-colors"
+                    className="bg-white border-gray-200 focus:border-pink-500 focus:ring-pink-500 rounded-lg transition-colors"
                     placeholder="Your name"
                   />
                 </div>
@@ -284,7 +271,7 @@ export default function Home() {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     required
-                    className="bg-white border-gray-200 focus:border-purple-500 focus:ring-purple-500 rounded-lg transition-colors"
+                    className="bg-white border-gray-200 focus:border-pink-500 focus:ring-pink-500 rounded-lg transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -301,7 +288,7 @@ export default function Home() {
                     }
                     required
                     rows={5}
-                    className="bg-white border-gray-200 focus:border-purple-500 focus:ring-purple-500 rounded-lg transition-colors resize-none"
+                    className="bg-white border-gray-200 focus:border-pink-500 focus:ring-pink-500 rounded-lg transition-colors resize-none"
                     placeholder="Tell us about your automation needs..."
                   />
                 </div>
@@ -309,7 +296,7 @@ export default function Home() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:shadow-lg text-white font-bold text-lg py-6 rounded-full transition-all duration-300 hover:scale-105"
+                  className="w-full bg-gradient-to-r from-pink-500 via-orange-400 to-violet-500 hover:shadow-lg text-white font-bold text-lg py-6 rounded-full transition-all duration-300 hover:scale-105"
                 >
                   Send Message
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -321,7 +308,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-8 mt-8 bg-gray-50">
+      <footer className="border-t border-gray-200 py-8 mt-8 bg-gradient-to-b from-pink-50/10 to-white">
         <div className="container px-4">
           <div className="text-center text-muted-foreground">
             <p className="font-semibold">
