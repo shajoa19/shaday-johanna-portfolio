@@ -1,10 +1,10 @@
 /**
- * Design Philosophy: Cyberpunk Brutalism
- * - Harsh geometric divisions with diagonal cuts
- * - Aggressive contrast between pure black and neon accents
- * - Diagonal section breaks with clip-path
- * - Glitch effects and neon borders
- * - Sharp transitions and mechanical interactions
+ * Design Philosophy: Holographic SaaS Minimalist
+ * - Clean white background with vibrant gradient accents
+ * - Generous whitespace and breathing room
+ * - Vibrant fluid gradients (hot pink → purple → electric blue)
+ * - Soft shadows and rounded corners
+ * - Modern, sophisticated, premium aesthetic
  */
 
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, Zap, MessageSquare, Workflow } from "lucide-react";
+import { ArrowRight, Zap, MessageSquare, Workflow, Cloud, Cpu, BarChart3 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -30,239 +30,234 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Hero Section with diagonal cut */}
-      <section
-        className="relative min-h-screen flex items-center justify-center"
-        style={{
-          clipPath: "polygon(0 0, 100% 0, 100% 92%, 0 100%)",
-          marginBottom: "-8vh",
-          paddingBottom: "12vh",
-        }}
-      >
-        {/* Background image with overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero-bg.png"
-            alt=""
-            className="w-full h-full object-cover opacity-70"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/30 to-background"></div>
-        </div>
+    <div className="min-h-screen bg-white text-foreground">
+      {/* Hero Section */}
+      <section className="py-20 md:py-32 px-4">
+        <div className="container">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Text Content */}
+            <div className="space-y-8">
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-pink-50 to-blue-50 rounded-full border border-pink-200">
+                <span className="text-sm font-semibold gradient-text">
+                  AI Automation Agency
+                </span>
+              </div>
 
-        {/* Grid overlay */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage:
-              "linear-gradient(oklch(0.65 0.25 290) 1px, transparent 1px), linear-gradient(90deg, oklch(0.65 0.25 290) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        ></div>
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+                <span className="text-foreground">Building </span>
+                <span className="gradient-text">Intelligent</span>
+                <br />
+                <span className="text-foreground">Ecosystems</span>
+              </h1>
 
-        {/* Content */}
-        <div className="container relative z-10 text-center px-4">
-          <div className="inline-block mb-6 px-4 py-2 border border-primary/50 bg-primary/10 rounded-sm">
-            <span className="text-primary font-mono text-sm tracking-wider">
-              SHADAY JOHANNA
-            </span>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+                London-based AI Architect transforming businesses through intelligent
+                automation and cutting-edge workflow solutions. We architect the future
+                of work.
+              </p>
+
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:shadow-lg text-white font-bold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
+              >
+                Automate Your Business
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
+
+            {/* Right: Holographic Illustration */}
+            <div className="flex justify-center items-center">
+              <img
+                src="/images/hero-holographic.png"
+                alt="Holographic AI illustration"
+                className="w-full max-w-md drop-shadow-lg"
+              />
+            </div>
           </div>
-
-          <h1
-            className="text-6xl md:text-8xl font-black mb-6 glitch leading-tight"
-            data-text="Building Intelligent Ecosystems"
-          >
-            Building Intelligent
-            <br />
-            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-              Ecosystems
-            </span>
-          </h1>
-
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto font-light">
-            London-based AI Architect transforming businesses through intelligent
-            automation and cutting-edge workflow solutions
-          </p>
-
-          <Button
-            size="lg"
-            className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-8 py-6 neon-glow transition-all duration-150 hover:scale-105"
-          >
-            Automate Your Business
-            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
         </div>
       </section>
 
-      {/* Services Grid Section */}
-      <section className="py-24 relative">
-        <div className="container px-4">
+      {/* Tech Stack Section */}
+      <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+        <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black mb-4">
-              <span className="text-foreground">Our </span>
-              <span className="text-primary">Services</span>
+            <h2 className="text-4xl font-bold mb-4">
+              Powered by <span className="gradient-text">Leading Technologies</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Cutting-edge AI solutions designed to revolutionize your business
-              operations
+            <p className="text-lg text-muted-foreground">
+              We integrate with industry-leading platforms and tools
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { name: "n8n", icon: Workflow, color: "from-pink-500 to-purple-500" },
+              { name: "OpenAI", icon: Cpu, color: "from-purple-500 to-blue-500" },
+              { name: "Cloud Services", icon: Cloud, color: "from-blue-500 to-cyan-500" },
+              { name: "Analytics", icon: BarChart3, color: "from-cyan-500 to-pink-500" },
+            ].map((tech, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col items-center justify-center p-8 bg-white rounded-2xl soft-shadow hover:soft-shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                <div
+                  className={`w-16 h-16 rounded-full bg-gradient-to-br ${tech.color} flex items-center justify-center mb-4`}
+                >
+                  <tech.icon className="w-8 h-8 text-white" />
+                </div>
+                <p className="font-semibold text-foreground">{tech.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 px-4">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">
+              Our <span className="gradient-text">Services</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Cutting-edge AI solutions designed to revolutionize your business operations
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* n8n Workflows Card */}
-            <Card className="glass-card p-8 hover:scale-105 transition-all duration-150 hover:border-primary group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl group-hover:bg-primary/20 transition-all"></div>
-              <div className="relative z-10">
-                <div className="w-20 h-20 mb-6 rounded-sm bg-gradient-to-br from-primary to-secondary p-1">
-                  <div className="w-full h-full bg-card rounded-sm flex items-center justify-center">
-                    <img
-                      src="/images/workflow-icon.png"
-                      alt="n8n Workflows"
-                      className="w-16 h-16 object-contain"
-                    />
+            {[
+              {
+                title: "n8n Workflows",
+                description:
+                  "Custom automation workflows that connect your tools and streamline operations. From simple triggers to complex multi-step processes.",
+                icon: Workflow,
+                gradient: "from-pink-500 to-purple-500",
+              },
+              {
+                title: "AI Chatbots",
+                description:
+                  "Intelligent conversational agents powered by advanced LLMs. Provide 24/7 support, qualify leads, and enhance customer engagement.",
+                icon: MessageSquare,
+                gradient: "from-purple-500 to-blue-500",
+              },
+              {
+                title: "Business Logic",
+                description:
+                  "Smart decision-making systems that adapt to your unique processes. Automate complex logic and reduce manual oversight.",
+                icon: Zap,
+                gradient: "from-blue-500 to-cyan-500",
+              },
+            ].map((service, idx) => (
+              <Card
+                key={idx}
+                className="p-8 bg-white border-2 border-transparent hover:border-transparent soft-shadow hover:soft-shadow-lg transition-all duration-300 hover:scale-105 group relative overflow-hidden rounded-2xl"
+                style={{
+                  backgroundImage: `linear-gradient(white, white), linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(138, 43, 226, 0.1), rgba(0, 123, 255, 0.1))`,
+                  backgroundClip: "padding-box, border-box",
+                  backgroundOrigin: "padding-box, border-box",
+                  borderImage: `linear-gradient(135deg, #ff69b4, #8a2be2, #007bff) 1`,
+                }}
+              >
+                <div className="relative z-10">
+                  <div
+                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
+                  >
+                    <service.icon className="w-8 h-8 text-white" />
                   </div>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <Workflow className="w-6 h-6 text-primary" />
-                  n8n Workflows
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Custom automation workflows that connect your tools and
-                  streamline operations. From simple triggers to complex
-                  multi-step processes.
-                </p>
-              </div>
-            </Card>
 
-            {/* AI Chatbots Card */}
-            <Card className="glass-card p-8 hover:scale-105 transition-all duration-150 hover:border-secondary group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 blur-3xl group-hover:bg-secondary/20 transition-all"></div>
-              <div className="relative z-10">
-                <div className="w-20 h-20 mb-6 rounded-sm bg-gradient-to-br from-secondary to-primary p-1">
-                  <div className="w-full h-full bg-card rounded-sm flex items-center justify-center">
-                    <img
-                      src="/images/chatbot-icon.png"
-                      alt="AI Chatbots"
-                      className="w-16 h-16 object-contain"
-                    />
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <MessageSquare className="w-6 h-6 text-secondary" />
-                  AI Chatbots
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Intelligent conversational agents powered by advanced LLMs.
-                  Provide 24/7 support, qualify leads, and enhance customer
-                  engagement.
-                </p>
-              </div>
-            </Card>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">
+                    {service.title}
+                  </h3>
 
-            {/* Business Logic Card */}
-            <Card className="glass-card p-8 hover:scale-105 transition-all duration-150 hover:border-primary group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl group-hover:bg-primary/20 transition-all"></div>
-              <div className="relative z-10">
-                <div className="w-20 h-20 mb-6 rounded-sm bg-gradient-to-br from-primary via-secondary to-primary p-1">
-                  <div className="w-full h-full bg-card rounded-sm flex items-center justify-center">
-                    <img
-                      src="/images/logic-icon.png"
-                      alt="Business Logic"
-                      className="w-16 h-16 object-contain"
-                    />
-                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <Zap className="w-6 h-6 text-primary" />
-                  Business Logic
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Smart decision-making systems that adapt to your unique
-                  processes. Automate complex logic and reduce manual oversight.
-                </p>
-              </div>
-            </Card>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* About Section with diagonal entry */}
-      <section
-        className="relative py-32 mt-16"
-        style={{
-          clipPath: "polygon(0 8%, 100% 0, 100% 100%, 0 100%)",
-          marginTop: "-5rem",
-          paddingTop: "8rem",
-        }}
-      >
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/about-visual.png"
-            alt=""
-            className="w-full h-full object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/60"></div>
-        </div>
-
-        <div className="container px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-block mb-6 px-4 py-2 border border-secondary/50 bg-secondary/10 rounded-sm">
-              <span className="text-secondary font-mono text-sm tracking-wider">
-                LONDON-BASED AI ARCHITECT
-              </span>
+      {/* About Section */}
+      <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Left: Image */}
+            <div className="flex justify-center">
+              <img
+                src="/images/holographic-brain.png"
+                alt="AI Brain illustration"
+                className="w-full max-w-md drop-shadow-lg"
+              />
             </div>
 
-            <h2 className="text-5xl md:text-6xl font-black mb-8">
-              <span className="text-foreground">Architecting the </span>
-              <span className="bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent">
-                Future of Work
-              </span>
-            </h2>
+            {/* Right: Content */}
+            <div className="space-y-8">
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-full border border-blue-200">
+                <span className="text-sm font-semibold gradient-text">
+                  LONDON-BASED AI ARCHITECT
+                </span>
+              </div>
 
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-              <p>
-                At Shaday Johanna, we don't just implement automation—we architect
-                intelligent ecosystems that transform how businesses operate. Based
-                in London's thriving tech scene, we bring Silicon Valley innovation
-                to enterprises ready to embrace the AI revolution.
-              </p>
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+                <span className="text-foreground">Architecting the </span>
+                <span className="gradient-text">Future of Work</span>
+              </h2>
 
-              <p>
-                Our expertise spans the full spectrum of AI automation: from n8n
-                workflow orchestration and custom chatbot development to complex
-                business logic implementation. We partner with forward-thinking
-                organizations to eliminate repetitive tasks, accelerate
-                decision-making, and unlock unprecedented efficiency.
-              </p>
+              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                <p>
+                  At Shaday Johanna, we don't just implement automation—we architect
+                  intelligent ecosystems that transform how businesses operate. Based in
+                  London's thriving tech scene, we bring Silicon Valley innovation to
+                  enterprises ready to embrace the AI revolution.
+                </p>
 
-              <p className="text-foreground font-semibold">
-                Whether you're scaling a startup or optimizing enterprise
-                operations, we deliver automation solutions that don't just work—they
-                evolve with your business.
-              </p>
+                <p>
+                  Our expertise spans the full spectrum of AI automation: from n8n
+                  workflow orchestration and custom chatbot development to complex
+                  business logic implementation. We partner with forward-thinking
+                  organizations to eliminate repetitive tasks, accelerate
+                  decision-making, and unlock unprecedented efficiency.
+                </p>
+              </div>
+
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:shadow-lg text-white font-bold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
+              >
+                Learn More
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 relative">
-        <div className="container px-4">
+      <section className="py-20 px-4">
+        <div className="container">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-5xl md:text-6xl font-black mb-4">
-                <span className="text-foreground">Book a </span>
-                <span className="text-primary">Consultation</span>
+              <h2 className="text-4xl font-bold mb-4">
+                Book a <span className="gradient-text">Consultation</span>
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg text-muted-foreground">
                 Let's discuss how AI automation can transform your business
               </p>
             </div>
 
-            <Card className="glass-card p-8 neon-glow">
+            <Card className="p-8 bg-white border-2 border-transparent soft-shadow rounded-2xl"
+              style={{
+                backgroundImage: `linear-gradient(white, white), linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(138, 43, 226, 0.1), rgba(0, 123, 255, 0.1))`,
+                backgroundClip: "padding-box, border-box",
+                backgroundOrigin: "padding-box, border-box",
+                borderImage: `linear-gradient(135deg, #ff69b4, #8a2be2, #007bff) 1`,
+              }}
+            >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-foreground font-mono">
+                  <Label htmlFor="name" className="text-foreground font-semibold">
                     Name
                   </Label>
                   <Input
@@ -272,13 +267,13 @@ export default function Home() {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     required
-                    className="bg-background/50 border-border focus:border-primary transition-colors"
+                    className="bg-white border-gray-200 focus:border-purple-500 focus:ring-purple-500 rounded-lg transition-colors"
                     placeholder="Your name"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-foreground font-mono">
+                  <Label htmlFor="email" className="text-foreground font-semibold">
                     Email
                   </Label>
                   <Input
@@ -289,13 +284,13 @@ export default function Home() {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     required
-                    className="bg-background/50 border-border focus:border-primary transition-colors"
+                    className="bg-white border-gray-200 focus:border-purple-500 focus:ring-purple-500 rounded-lg transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-foreground font-mono">
+                  <Label htmlFor="message" className="text-foreground font-semibold">
                     Message
                   </Label>
                   <Textarea
@@ -306,7 +301,7 @@ export default function Home() {
                     }
                     required
                     rows={5}
-                    className="bg-background/50 border-border focus:border-primary transition-colors resize-none"
+                    className="bg-white border-gray-200 focus:border-purple-500 focus:ring-purple-500 rounded-lg transition-colors resize-none"
                     placeholder="Tell us about your automation needs..."
                   />
                 </div>
@@ -314,10 +309,10 @@ export default function Home() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg py-6 transition-all duration-150 hover:scale-105"
+                  className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:shadow-lg text-white font-bold text-lg py-6 rounded-full transition-all duration-300 hover:scale-105"
                 >
                   Send Message
-                  <ArrowRight className="ml-2" />
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </form>
             </Card>
@@ -326,10 +321,10 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 py-8 mt-16">
+      <footer className="border-t border-gray-200 py-8 mt-8 bg-gray-50">
         <div className="container px-4">
           <div className="text-center text-muted-foreground">
-            <p className="font-mono text-sm">
+            <p className="font-semibold">
               © 2026 Shaday Johanna. Building Intelligent Ecosystems.
             </p>
           </div>
