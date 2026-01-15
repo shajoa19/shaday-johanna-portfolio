@@ -18,24 +18,24 @@ const translations: Translations = {
 
   // Hero Section
   "hero.label": {
-    en: "AI Automation Agency",
-    es: "Agencia de Automatización IA",
+    en: "Strategic Business Architects",
+    es: "Arquitectos Empresariales Estratégicos",
   },
   "hero.title.part1": {
-    en: "Building",
-    es: "Construyendo",
+    en: "Strategic Innovation &",
+    es: "Innovación Estratégica &",
   },
   "hero.title.part2": {
     en: "Intelligent",
-    es: "Ecosistemas",
+    es: "Automatización",
   },
   "hero.title.part3": {
-    en: "Ecosystems",
-    es: "Inteligentes",
+    en: "Automation",
+    es: "Inteligente",
   },
   "hero.subtitle": {
-    en: "London-based AI Architect transforming businesses through intelligent automation and cutting-edge workflow solutions. We architect the future of work.",
-    es: "Arquitecto de IA con sede en Londres que transforma negocios a través de automatización inteligente y soluciones de flujo de trabajo de vanguardia. Diseñamos el futuro del trabajo.",
+    en: "We don't just build bots. We redefine your business model, optimize your strategy, and then automate the execution. From chaos to clarity.",
+    es: "No solo construimos bots. Redefinimos tu modelo de negocio, optimizamos tu estrategia y luego automatizamos la ejecución. Del caos a la claridad.",
   },
   "hero.cta": {
     en: "Automate Your Business",
@@ -92,6 +92,14 @@ const translations: Translations = {
   "services.logic.description": {
     en: "Smart decision-making systems that adapt to your unique processes. Automate complex logic and reduce manual oversight.",
     es: "Sistemas de toma de decisiones inteligentes que se adaptan a tus procesos únicos. Automatiza lógica compleja y reduce la supervisión manual.",
+  },
+  "services.consulting.title": {
+    en: "Strategic Consulting",
+    es: "Consultoría Estratégica",
+  },
+  "services.consulting.description": {
+    en: "Business auditing, workflow redesign, and innovation roadmaps. We analyze your operations and design the optimal path forward.",
+    es: "Auditoría empresarial, rediseño de flujos de trabajo y hojas de ruta de innovación. Analizamos tus operaciones y diseñamos el camino óptimo hacia adelante.",
   },
 
   // About Section

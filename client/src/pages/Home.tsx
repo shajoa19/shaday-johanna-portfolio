@@ -1,11 +1,11 @@
 /**
- * Design Philosophy: Warm Holographic SaaS Minimalist with Bilingual Support
+ * Design Philosophy: Premium Warm Holographic SaaS with Strategic Consulting
  * - Clean white background with warm mesh gradient orbs
  * - Vibrant warm gradients (hot pink → peach → soft violet)
- * - Gradient text on headlines for strong visual impact
- * - Glowing card effects on hover
- * - Sophisticated, warm, premium aesthetic
- * - English/Spanish language support via context
+ * - Floating animations on illustrations and orbs
+ * - 3D tilt effects on service cards
+ * - Strategic consulting positioning
+ * - English/Spanish language support
  */
 
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, Zap, MessageSquare, Workflow, Cloud, Cpu, BarChart3 } from "lucide-react";
+import { ArrowRight, Zap, MessageSquare, Workflow, Cloud, Cpu, BarChart3, Lightbulb } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -33,7 +33,12 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-foreground">
+    <div className="min-h-screen bg-white text-foreground overflow-hidden">
+      {/* Floating Orbs Background */}
+      <div className="floating-orb orb-1" />
+      <div className="floating-orb orb-2" />
+      <div className="floating-orb orb-3" />
+
       {/* Hero Section with Mesh Gradient */}
       <section className="relative py-20 md:py-32 px-4 mesh-gradient pt-32">
         <div className="container relative z-10">
@@ -66,12 +71,12 @@ export default function Home() {
               </Button>
             </div>
 
-            {/* Right: Holographic Illustration */}
+            {/* Right: Holographic Illustration with Float Animation */}
             <div className="flex justify-center items-center">
               <img
                 src="/images/hero-holographic.png"
                 alt="Holographic AI illustration"
-                className="w-full max-w-md drop-shadow-lg"
+                className="w-full max-w-md drop-shadow-lg float-animation pulse-animation"
               />
             </div>
           </div>
@@ -79,7 +84,7 @@ export default function Home() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-white to-pink-50/20">
+      <section className="py-20 px-4 bg-gradient-to-b from-white to-pink-50/20 relative z-20">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
@@ -99,7 +104,7 @@ export default function Home() {
             ].map((tech, idx) => (
               <div
                 key={idx}
-                className="glow-border p-8 bg-white rounded-2xl soft-shadow hover:soft-shadow-lg transition-all duration-300 hover:scale-105"
+                className="glow-border p-8 bg-white rounded-2xl soft-shadow hover:soft-shadow-lg transition-all duration-300 hover:scale-105 tilt-card"
               >
                 <div
                   className={`w-16 h-16 rounded-full bg-gradient-to-br ${tech.color} flex items-center justify-center mb-4`}
@@ -113,8 +118,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20 px-4 mesh-gradient">
+      {/* Services Section with Strategic Consulting */}
+      <section className="py-20 px-4 mesh-gradient relative z-20">
         <div className="container relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
@@ -125,8 +130,14 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {[
+              {
+                title: t("services.consulting.title"),
+                description: t("services.consulting.description"),
+                icon: Lightbulb,
+                gradient: "from-violet-500 to-pink-500",
+              },
               {
                 title: t("services.workflows.title"),
                 description: t("services.workflows.description"),
@@ -148,7 +159,7 @@ export default function Home() {
             ].map((service, idx) => (
               <Card
                 key={idx}
-                className="p-8 bg-white glow-border soft-shadow hover:soft-shadow-lg transition-all duration-300 hover:scale-105 group relative overflow-hidden rounded-2xl"
+                className="p-8 bg-white glow-border soft-shadow hover:soft-shadow-lg transition-all duration-300 group relative overflow-hidden rounded-2xl tilt-card"
               >
                 <div className="relative z-10">
                   <div
@@ -172,15 +183,15 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-pink-50/20 to-white">
+      <section className="py-20 px-4 bg-gradient-to-b from-pink-50/20 to-white relative z-20">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            {/* Left: Image */}
+            {/* Left: Image with Float Animation */}
             <div className="flex justify-center">
               <img
                 src="/images/holographic-brain.png"
                 alt="AI Brain illustration"
-                className="w-full max-w-md drop-shadow-lg"
+                className="w-full max-w-md drop-shadow-lg float-animation pulse-animation"
               />
             </div>
 
@@ -215,7 +226,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 mesh-gradient">
+      <section className="py-20 px-4 mesh-gradient relative z-20">
         <div className="container relative z-10">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
@@ -227,7 +238,7 @@ export default function Home() {
               </p>
             </div>
 
-            <Card className="p-8 bg-white glow-border soft-shadow rounded-2xl">
+            <Card className="p-8 bg-white glow-border soft-shadow rounded-2xl tilt-card">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-foreground font-semibold">
@@ -294,7 +305,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-8 mt-8 bg-gradient-to-b from-pink-50/10 to-white">
+      <footer className="border-t border-gray-200 py-8 mt-8 bg-gradient-to-b from-pink-50/10 to-white relative z-20">
         <div className="container px-4">
           <div className="text-center text-muted-foreground">
             <p className="font-semibold">

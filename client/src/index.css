@@ -252,4 +252,81 @@
     filter: blur(60px);
     pointer-events: none;
   }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse Animation */
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.8;
+      filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.3));
+    }
+    50% {
+      opacity: 1;
+      filter: drop-shadow(0 0 40px rgba(255, 140, 105, 0.5));
+    }
+  }
+
+  .pulse-animation {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  /* 3D Tilt Effect */
+  .tilt-card {
+    perspective: 1000px;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  .tilt-card:hover {
+    transform: rotateX(5deg) rotateY(-5deg) scale(1.02);
+  }
+
+  /* Floating Orbs */
+  .floating-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(40px);
+  }
+
+  .orb-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.2) 0%, transparent 70%);
+    top: 10%;
+    right: 5%;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(255, 140, 105, 0.15) 0%, transparent 70%);
+    bottom: 15%;
+    left: 10%;
+    animation: float 10s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .orb-3 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(157, 0, 255, 0.1) 0%, transparent 70%);
+    top: 50%;
+    left: 5%;
+    animation: float 12s ease-in-out infinite;
+    animation-delay: 4s;
+  }
 }
