@@ -1,10 +1,11 @@
 /**
- * Design Philosophy: Warm Holographic SaaS Minimalist
+ * Design Philosophy: Warm Holographic SaaS Minimalist with Bilingual Support
  * - Clean white background with warm mesh gradient orbs
  * - Vibrant warm gradients (hot pink → peach → soft violet)
  * - Gradient text on headlines for strong visual impact
  * - Glowing card effects on hover
  * - Sophisticated, warm, premium aesthetic
+ * - English/Spanish language support via context
  */
 
 import { Button } from "@/components/ui/button";
@@ -15,8 +16,10 @@ import { Label } from "@/components/ui/label";
 import { ArrowRight, Zap, MessageSquare, Workflow, Cloud, Cpu, BarChart3 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Home() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,42 +28,40 @@ export default function Home() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Consultation request received! We'll be in touch soon.");
+    toast.success(t("contact.success"));
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
     <div className="min-h-screen bg-white text-foreground">
       {/* Hero Section with Mesh Gradient */}
-      <section className="relative py-20 md:py-32 px-4 mesh-gradient">
+      <section className="relative py-20 md:py-32 px-4 mesh-gradient pt-32">
         <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Text Content */}
             <div className="space-y-8">
               <div className="inline-block px-4 py-2 bg-gradient-to-r from-pink-50 to-orange-50 rounded-full border border-pink-200">
                 <span className="text-sm font-semibold gradient-text">
-                  AI Automation Agency
+                  {t("hero.label")}
                 </span>
               </div>
 
               <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                <span className="text-foreground">Building </span>
-                <span className="gradient-text-strong">Intelligent</span>
+                <span className="text-foreground">{t("hero.title.part1")} </span>
+                <span className="gradient-text-strong">{t("hero.title.part2")}</span>
                 <br />
-                <span className="text-foreground">Ecosystems</span>
+                <span className="text-foreground">{t("hero.title.part3")}</span>
               </h1>
 
               <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-                London-based AI Architect transforming businesses through intelligent
-                automation and cutting-edge workflow solutions. We architect the future
-                of work.
+                {t("hero.subtitle")}
               </p>
 
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-pink-500 via-orange-400 to-violet-500 hover:shadow-lg text-white font-bold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
               >
-                Automate Your Business
+                {t("hero.cta")}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </div>
@@ -82,10 +83,10 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
-              Powered by <span className="gradient-text-strong">Leading Technologies</span>
+              {t("techstack.title")} <span className="gradient-text-strong">{t("techstack.subtitle")}</span>
             </h2>
             <p className="text-lg text-muted-foreground">
-              We integrate with industry-leading platforms and tools
+              {t("techstack.description")}
             </p>
           </div>
 
@@ -117,33 +118,30 @@ export default function Home() {
         <div className="container relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
-              Our <span className="gradient-text-strong">Services</span>
+              {t("services.title")} <span className="gradient-text-strong">{t("services.subtitle")}</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Cutting-edge AI solutions designed to revolutionize your business operations
+              {t("services.description")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: "n8n Workflows",
-                description:
-                  "Custom automation workflows that connect your tools and streamline operations. From simple triggers to complex multi-step processes.",
+                title: t("services.workflows.title"),
+                description: t("services.workflows.description"),
                 icon: Workflow,
                 gradient: "from-pink-500 to-orange-400",
               },
               {
-                title: "AI Chatbots",
-                description:
-                  "Intelligent conversational agents powered by advanced LLMs. Provide 24/7 support, qualify leads, and enhance customer engagement.",
+                title: t("services.chatbots.title"),
+                description: t("services.chatbots.description"),
                 icon: MessageSquare,
                 gradient: "from-orange-400 to-violet-500",
               },
               {
-                title: "Business Logic",
-                description:
-                  "Smart decision-making systems that adapt to your unique processes. Automate complex logic and reduce manual oversight.",
+                title: t("services.logic.title"),
+                description: t("services.logic.description"),
                 icon: Zap,
                 gradient: "from-violet-500 to-pink-500",
               },
@@ -190,37 +188,25 @@ export default function Home() {
             <div className="space-y-8">
               <div className="inline-block px-4 py-2 bg-gradient-to-r from-orange-50 to-violet-50 rounded-full border border-orange-200">
                 <span className="text-sm font-semibold gradient-text">
-                  LONDON-BASED AI ARCHITECT
+                  {t("about.label")}
                 </span>
               </div>
 
               <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                <span className="text-foreground">Architecting the </span>
-                <span className="gradient-text-strong">Future of Work</span>
+                <span className="text-foreground">{t("about.title.part1")} </span>
+                <span className="gradient-text-strong">{t("about.title.part2")}</span>
               </h2>
 
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-                <p>
-                  At Shaday Johanna, we don't just implement automation—we architect
-                  intelligent ecosystems that transform how businesses operate. Based in
-                  London's thriving tech scene, we bring Silicon Valley innovation to
-                  enterprises ready to embrace the AI revolution.
-                </p>
-
-                <p>
-                  Our expertise spans the full spectrum of AI automation: from n8n
-                  workflow orchestration and custom chatbot development to complex
-                  business logic implementation. We partner with forward-thinking
-                  organizations to eliminate repetitive tasks, accelerate
-                  decision-making, and unlock unprecedented efficiency.
-                </p>
+                <p>{t("about.paragraph1")}</p>
+                <p>{t("about.paragraph2")}</p>
               </div>
 
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-pink-500 via-orange-400 to-violet-500 hover:shadow-lg text-white font-bold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
               >
-                Learn More
+                {t("about.cta")}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </div>
@@ -234,10 +220,10 @@ export default function Home() {
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                Book a <span className="gradient-text-strong">Consultation</span>
+                {t("contact.title")} <span className="gradient-text-strong">{t("contact.subtitle")}</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                Let's discuss how AI automation can transform your business
+                {t("contact.description")}
               </p>
             </div>
 
@@ -245,7 +231,7 @@ export default function Home() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-foreground font-semibold">
-                    Name
+                    {t("contact.name.label")}
                   </Label>
                   <Input
                     id="name"
@@ -255,13 +241,13 @@ export default function Home() {
                     }
                     required
                     className="bg-white border-gray-200 focus:border-pink-500 focus:ring-pink-500 rounded-lg transition-colors"
-                    placeholder="Your name"
+                    placeholder={t("contact.name.placeholder")}
                   />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-foreground font-semibold">
-                    Email
+                    {t("contact.email.label")}
                   </Label>
                   <Input
                     id="email"
@@ -272,13 +258,13 @@ export default function Home() {
                     }
                     required
                     className="bg-white border-gray-200 focus:border-pink-500 focus:ring-pink-500 rounded-lg transition-colors"
-                    placeholder="your@email.com"
+                    placeholder={t("contact.email.placeholder")}
                   />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-foreground font-semibold">
-                    Message
+                    {t("contact.message.label")}
                   </Label>
                   <Textarea
                     id="message"
@@ -289,7 +275,7 @@ export default function Home() {
                     required
                     rows={5}
                     className="bg-white border-gray-200 focus:border-pink-500 focus:ring-pink-500 rounded-lg transition-colors resize-none"
-                    placeholder="Tell us about your automation needs..."
+                    placeholder={t("contact.message.placeholder")}
                   />
                 </div>
 
@@ -298,7 +284,7 @@ export default function Home() {
                   size="lg"
                   className="w-full bg-gradient-to-r from-pink-500 via-orange-400 to-violet-500 hover:shadow-lg text-white font-bold text-lg py-6 rounded-full transition-all duration-300 hover:scale-105"
                 >
-                  Send Message
+                  {t("contact.submit")}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </form>
@@ -312,7 +298,7 @@ export default function Home() {
         <div className="container px-4">
           <div className="text-center text-muted-foreground">
             <p className="font-semibold">
-              © 2026 Shaday Johanna. Building Intelligent Ecosystems.
+              {t("footer.copyright")}
             </p>
           </div>
         </div>
