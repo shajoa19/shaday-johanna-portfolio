@@ -329,4 +329,68 @@
     animation: float 12s ease-in-out infinite;
     animation-delay: 4s;
   }
+
+  /* Breathing Animation */
+  @keyframes breathing {
+    0%, 100% {
+      transform: scale(1) translateY(0px);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1.02) translateY(-15px);
+      opacity: 1;
+    }
+  }
+
+  .breathing-animation {
+    animation: breathing 4s ease-in-out infinite;
+  }
+
+  /* Scroll Reveal Animations */
+  @keyframes slideUpFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUpFadeIn 0.8s ease-out forwards;
+  }
+
+  .scroll-reveal.delay-1 {
+    animation-delay: 0.1s;
+  }
+
+  .scroll-reveal.delay-2 {
+    animation-delay: 0.2s;
+  }
+
+  .scroll-reveal.delay-3 {
+    animation-delay: 0.3s;
+  }
+
+  .scroll-reveal.delay-4 {
+    animation-delay: 0.4s;
+  }
+
+  /* Cursor Glow */
+  .cursor-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(80px);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    mix-blend-mode: screen;
+  }
 }
