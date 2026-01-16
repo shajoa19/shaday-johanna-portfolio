@@ -82,13 +82,17 @@
   --sidebar-ring: #FF69B4;
   --radius: 0.75rem; /* Rounded corners for minimalist feel */
 }
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-foreground;
+    background-image: url('/images/hero-aurora-wave.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     font-family: var(--font-body);
   }
   h1, h2, h3, h4, h5, h6 {

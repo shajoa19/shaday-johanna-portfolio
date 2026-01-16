@@ -156,7 +156,7 @@ export default function Home() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-12 px-4 bg-gradient-to-b from-white to-pink-50/20 relative z-20">
+      <section className="py-12 px-4 bg-transparent relative z-20">
         <div className="container">
           <div className={`text-center mb-10 ${servicesVisible ? 'scroll-reveal' : ''}`}>
             <h2 className="text-3xl font-bold mb-2">
@@ -197,7 +197,7 @@ export default function Home() {
       </section>
 
       {/* Services Section with Strategic Consulting */}
-      <section ref={servicesRef} className="py-12 px-4 mesh-gradient relative z-20">
+      <section ref={servicesRef} className="py-12 px-4 bg-transparent relative z-20">
         <div className="container relative z-10">
           <div className={`text-center mb-10 ${servicesVisible ? 'scroll-reveal' : ''}`}>
             <h2 className="text-3xl font-bold mb-2">
@@ -283,7 +283,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section ref={contactRef} className="py-12 px-4 mesh-gradient relative z-20">
+      <section ref={contactRef} className="py-12 px-4 bg-transparent relative z-20">
         <div className="container relative z-10">
           <div className="max-w-2xl mx-auto">
             <div className={`text-center mb-10 ${contactVisible ? 'scroll-reveal' : ''}`}>
