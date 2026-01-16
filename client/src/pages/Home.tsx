@@ -8,6 +8,8 @@
  * - Scroll-triggered reveals on all sections
  * - Strategic consulting positioning
  * - English/Spanish language support
+ * - Hero: Wide holographic wave banner
+ * - About: Brain illustration next to text
  */
 
 import { Button } from "@/components/ui/button";
@@ -86,47 +88,45 @@ export default function Home() {
       <div className="floating-orb orb-2" />
       <div className="floating-orb orb-3" />
 
-      {/* Hero Section with Mesh Gradient */}
-      <section ref={heroRef} className="relative py-20 md:py-32 px-4 mesh-gradient pt-32">
-        <div className="container relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left: Text Content */}
-            <div className={`space-y-8 ${heroVisible ? 'scroll-reveal' : ''}`}>
-              <div className="inline-block px-4 py-2 bg-gradient-to-r from-pink-50 to-orange-50 rounded-full border border-pink-200">
-                <span className="text-sm font-semibold gradient-text">
-                  {t("hero.label")}
-                </span>
-              </div>
-
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                <span className="text-foreground">{t("hero.title.part1")} </span>
-                <span className="gradient-text-strong">{t("hero.title.part2")}</span>
-                <br />
-                <span className="text-foreground">{t("hero.title.part3")}</span>
-              </h1>
-
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-                {t("hero.subtitle")}
-              </p>
-
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-pink-500 via-orange-400 to-violet-500 hover:shadow-lg text-white font-bold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
-              >
-                {t("hero.cta")}
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+      {/* Hero Section with Wave Banner */}
+      <section ref={heroRef} className="relative pt-32 pb-0 px-4 mesh-gradient">
+        <div className="container relative z-10 mb-12">
+          <div className="space-y-8 max-w-2xl">
+            <div className="inline-block px-4 py-2 bg-gradient-to-r from-pink-50 to-orange-50 rounded-full border border-pink-200">
+              <span className="text-sm font-semibold gradient-text">
+                {t("hero.label")}
+              </span>
             </div>
 
-            {/* Right: Holographic Illustration with Breathing Animation */}
-            <div className={`flex justify-center items-center ${heroVisible ? 'scroll-reveal delay-2' : ''}`}>
-              <img
-                src="/images/hero-holographic.png"
-                alt="Holographic AI illustration"
-                className="w-full max-w-md drop-shadow-lg breathing-animation"
-              />
-            </div>
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+              <span className="text-foreground">{t("hero.title.part1")} </span>
+              <span className="gradient-text-strong">{t("hero.title.part2")}</span>
+              <br />
+              <span className="text-foreground">{t("hero.title.part3")}</span>
+            </h1>
+
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+              {t("hero.subtitle")}
+            </p>
+
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-pink-500 via-orange-400 to-violet-500 hover:shadow-lg text-white font-bold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
+            >
+              {t("hero.cta")}
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
           </div>
+        </div>
+
+        {/* Wide Holographic Wave Banner */}
+        <div className="w-full relative overflow-hidden">
+          <img
+            src="/images/hero-wave-banner.png"
+            alt="Holographic wave banner"
+            className="w-full h-auto object-cover breathing-animation"
+            style={{ minHeight: "200px" }}
+          />
         </div>
       </section>
 
@@ -216,21 +216,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section with Brain on Right */}
       <section ref={aboutRef} className="py-20 px-4 bg-gradient-to-b from-pink-50/20 to-white relative z-20">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            {/* Left: Image with Breathing Animation */}
-            <div className={`flex justify-center ${aboutVisible ? 'scroll-reveal' : ''}`}>
-              <img
-                src="/images/holographic-brain.png"
-                alt="AI Brain illustration"
-                className="w-full max-w-md drop-shadow-lg breathing-animation"
-              />
-            </div>
-
-            {/* Right: Content */}
-            <div className={`space-y-8 ${aboutVisible ? 'scroll-reveal delay-2' : ''}`}>
+            {/* Left: Content */}
+            <div className={`space-y-8 ${aboutVisible ? 'scroll-reveal' : ''}`}>
               <div className="inline-block px-4 py-2 bg-gradient-to-r from-orange-50 to-violet-50 rounded-full border border-orange-200">
                 <span className="text-sm font-semibold gradient-text">
                   {t("about.label")}
@@ -254,6 +245,15 @@ export default function Home() {
                 {t("about.cta")}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
+            </div>
+
+            {/* Right: Brain Illustration with Breathing Animation */}
+            <div className={`flex justify-center ${aboutVisible ? 'scroll-reveal delay-2' : ''}`}>
+              <img
+                src="/images/holographic-brain.png"
+                alt="AI Brain illustration"
+                className="w-full max-w-md drop-shadow-lg breathing-animation"
+              />
             </div>
           </div>
         </div>
