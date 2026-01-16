@@ -1,5 +1,5 @@
 /**
- * Design Philosophy: Premium Warm Holographic SaaS with High-End Interactivity
+ * Design Philosophy: Premium Warm Holographic SaaS with Magazine-Cover Layout
  * - Clean white background with warm mesh gradient orbs
  * - Vibrant warm gradients (hot pink → peach → soft violet)
  * - Cursor glow effect following mouse
@@ -9,7 +9,7 @@
  * - Strategic consulting positioning
  * - English/Spanish language support
  * - Hero: Wide holographic wave banner
- * - About: Brain illustration next to text
+ * - About: Magazine-cover style with overlapping floating elements
  */
 
 import { Button } from "@/components/ui/button";
@@ -216,11 +216,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section with Brain on Right */}
-      <section ref={aboutRef} className="py-20 px-4 bg-gradient-to-b from-pink-50/20 to-white relative z-20">
-        <div className="container">
+      {/* About Section - Magazine Cover Style with Overlapping Elements */}
+      <section ref={aboutRef} className="relative py-32 px-4 bg-white overflow-hidden">
+        {/* Background Wave - Positioned absolutely to flow behind content */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img
+            src="/images/hero-wave-banner.png"
+            alt="Background wave"
+            className="absolute top-0 left-0 w-full h-96 object-cover opacity-80 breathing-animation"
+            style={{
+              transform: 'scaleY(1.2) translateY(-10%)',
+            }}
+          />
+        </div>
+
+        <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            {/* Left: Content */}
+            {/* Left: Content - Positioned on top of waves */}
             <div className={`space-y-8 ${aboutVisible ? 'scroll-reveal' : ''}`}>
               <div className="inline-block px-4 py-2 bg-gradient-to-r from-orange-50 to-violet-50 rounded-full border border-orange-200">
                 <span className="text-sm font-semibold gradient-text">
@@ -228,7 +240,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              <h2 className="text-5xl md:text-6xl font-bold leading-tight">
                 <span className="text-foreground">{t("about.title.part1")} </span>
                 <span className="gradient-text-strong">{t("about.title.part2")}</span>
               </h2>
@@ -247,13 +259,19 @@ export default function Home() {
               </Button>
             </div>
 
-            {/* Right: Brain Illustration with Breathing Animation */}
-            <div className={`flex justify-center ${aboutVisible ? 'scroll-reveal delay-2' : ''}`}>
-              <img
-                src="/images/holographic-brain.png"
-                alt="AI Brain illustration"
-                className="w-full max-w-md drop-shadow-lg breathing-animation"
-              />
+            {/* Right: Brain Illustration - Floating with breathing animation */}
+            <div className={`flex justify-center relative z-20 ${aboutVisible ? 'scroll-reveal delay-2' : ''}`}>
+              <div className="relative">
+                {/* Glow effect behind brain */}
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-300 via-orange-300 to-violet-300 rounded-full blur-3xl opacity-30 animate-pulse" />
+                
+                {/* Brain image with breathing animation */}
+                <img
+                  src="/images/brain-warm-glowing.png"
+                  alt="AI Brain illustration"
+                  className="w-full max-w-md drop-shadow-2xl breathing-animation relative z-10"
+                />
+              </div>
             </div>
           </div>
         </div>
