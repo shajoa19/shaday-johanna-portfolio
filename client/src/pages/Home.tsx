@@ -236,51 +236,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section - Compact */}
-      <section ref={aboutRef} className="relative py-16 px-4 bg-white overflow-hidden">
-        <div className="container relative z-10">
-          <div className="grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
-            {/* Left: Content */}
-            <div className={`space-y-6 ${aboutVisible ? 'scroll-reveal' : ''}`}>
-              <div className="inline-block px-3 py-1 bg-gradient-to-r from-orange-50 to-violet-50 rounded-full border border-orange-200">
-                <span className="text-xs font-semibold gradient-text">
-                  {t("about.label")}
-                </span>
-              </div>
+      {/* About Section - Pastel Wave Banner */}
+      <section ref={aboutRef} className="relative py-20 px-4 overflow-hidden">
+        {/* Pastel Wave Banner Background */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/about-wave-pastel.png"
+            alt="Background wave"
+            className="w-full h-full object-cover breathing-animation"
+          />
+        </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                <span className="text-foreground">{t("about.title.part1")} </span>
-                <span className="gradient-text-strong">{t("about.title.part2")}</span>
-              </h2>
-
-              <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
-                <p>{t("about.paragraph1")}</p>
-                <p>{t("about.paragraph2")}</p>
-              </div>
-
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-pink-500 via-orange-400 to-violet-500 hover:shadow-lg text-white font-bold text-base px-6 py-4 rounded-full transition-all duration-300 hover:scale-105 w-fit"
-              >
-                {t("about.cta")}
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+        {/* Content Overlay */}
+        <div className="container relative z-10 max-w-4xl mx-auto">
+          <div className={`text-center space-y-6 ${aboutVisible ? 'scroll-reveal' : ''}`}>
+            <div className="inline-block px-3 py-1 bg-white/80 backdrop-blur-sm rounded-full border border-white/40">
+              <span className="text-xs font-semibold gradient-text">
+                {t("about.label")}
+              </span>
             </div>
 
-            {/* Right: Brain Illustration */}
-            <div className={`flex justify-center relative z-20 ${aboutVisible ? 'scroll-reveal delay-2' : ''}`}>
-              <div className="relative">
-                {/* Glow effect behind brain */}
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-300 via-orange-300 to-violet-300 rounded-full blur-3xl opacity-30 animate-pulse" />
-                
-                {/* Brain image with breathing animation */}
-                <img
-                  src="/images/brain-warm-glowing.png"
-                  alt="AI Brain illustration"
-                  className="w-full max-w-sm drop-shadow-2xl breathing-animation relative z-10"
-                />
-              </div>
+            <h2 className="text-5xl md:text-6xl font-bold leading-tight">
+              <span className="text-foreground">{t("about.title.part1")} </span>
+              <span className="gradient-text-strong">{t("about.title.part2")}</span>
+            </h2>
+
+            <div className="space-y-4 text-base text-foreground/80 leading-relaxed max-w-2xl mx-auto">
+              <p>{t("about.paragraph1")}</p>
+              <p>{t("about.paragraph2")}</p>
             </div>
+
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-pink-500 via-orange-400 to-violet-500 hover:shadow-lg text-white font-bold text-base px-6 py-4 rounded-full transition-all duration-300 hover:scale-105"
+            >
+              {t("about.cta")}
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
           </div>
         </div>
       </section>
