@@ -1,15 +1,11 @@
 /**
- * Design Philosophy: Premium Warm Holographic SaaS with Magazine-Cover Layout
- * - Clean white background with warm mesh gradient orbs
- * - Vibrant warm gradients (hot pink → peach → soft violet)
- * - Cursor glow effect following mouse
- * - Parallax tilt on service cards
- * - Breathing animations on illustrations
- * - Scroll-triggered reveals on all sections
- * - Strategic consulting positioning
+ * Design Philosophy: Clean Minimalist SaaS with Reactive Aurora
+ * - White background with elegant pastel aurora borealis wave
+ * - Reactive gradient effect that follows mouse movement
+ * - Clean, sophisticated, high-end Silicon Valley tech vibe
+ * - Minimal graphics, maximum elegance
  * - English/Spanish language support
- * - Hero: Wave and brain side-by-side matching reference image
- * - Compact spacing throughout to eliminate white gaps
+ * - All interactive effects preserved (cursor glow, parallax tilt, scroll reveals)
  */
 
 import { Button } from "@/components/ui/button";
@@ -23,6 +19,72 @@ import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useParallaxTilt } from "@/hooks/useParallaxTilt";
+import { useReactiveGradient } from "@/hooks/useReactiveGradient";
+
+// Reactive Aurora Hero Component
+function ReactiveAuroraHero() {
+  const { t } = useLanguage();
+  const { containerRef } = useReactiveGradient();
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full h-96 flex items-center justify-center overflow-hidden bg-white"
+      style={{
+        '--gradient-x': '50%',
+        '--gradient-y': '50%',
+      } as React.CSSProperties}
+    >
+      {/* Reactive Aurora Wave Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <img
+          src="/images/hero-aurora-wave.png"
+          alt="Aurora wave"
+          className="w-full h-full object-cover"
+          style={{
+            filter: 'brightness(1.1) saturate(1.2)',
+            mixBlendMode: 'screen',
+          }}
+        />
+        {/* Reactive gradient overlay that follows mouse */}
+        <div
+          className="absolute inset-0 transition-all duration-300 ease-out pointer-events-none"
+          style={{
+            background: `radial-gradient(circle at var(--gradient-x, 50%) var(--gradient-y, 50%), rgba(236, 72, 153, 0.15) 0%, rgba(168, 85, 247, 0.1) 40%, transparent 70%)`,
+          }}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 container px-4 max-w-4xl mx-auto text-center space-y-6">
+        <div className="inline-block px-3 py-1 bg-white/70 backdrop-blur-sm rounded-full border border-white/50">
+          <span className="text-xs font-semibold gradient-text">
+            {t("hero.label")}
+          </span>
+        </div>
+
+        <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+          <span className="text-foreground">{t("hero.title.part1")} </span>
+          <span className="gradient-text-strong">{t("hero.title.part2")}</span>
+          <br />
+          <span className="text-foreground">{t("hero.title.part3")}</span>
+        </h1>
+
+        <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          {t("hero.subtitle")}
+        </p>
+
+        <Button
+          size="lg"
+          className="bg-gradient-to-r from-pink-500 via-purple-400 to-blue-400 hover:shadow-lg text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
+        >
+          {t("hero.cta")}
+          <ArrowRight className="ml-2 w-4 h-4" />
+        </Button>
+      </div>
+    </div>
+  );
+}
 
 // Service Card Component with Parallax Tilt
 function ServiceCard({ title, description, icon: Icon, gradient, delay }: any) {
@@ -88,66 +150,9 @@ export default function Home() {
       <div className="floating-orb orb-2" />
       <div className="floating-orb orb-3" />
 
-      {/* Hero Section - Matching Reference Image */}
-      <section ref={heroRef} className="relative pt-20 pb-8 px-4 overflow-hidden">
-        <div className="container relative z-10">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Left: Content with Wave Behind */}
-            <div className="relative z-20 space-y-6">
-              <div className="inline-block px-3 py-1 bg-gradient-to-r from-pink-50 to-orange-50 rounded-full border border-pink-200">
-                <span className="text-xs font-semibold gradient-text">
-                  {t("hero.label")}
-                </span>
-              </div>
-
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                <span className="text-foreground">{t("hero.title.part1")} </span>
-                <span className="gradient-text-strong">{t("hero.title.part2")}</span>
-                <br />
-                <span className="text-foreground">{t("hero.title.part3")}</span>
-              </h1>
-
-              <p className="text-base text-muted-foreground leading-relaxed max-w-md">
-                {t("hero.subtitle")}
-              </p>
-
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-pink-500 via-orange-400 to-violet-500 hover:shadow-lg text-white font-bold text-base px-6 py-4 rounded-full transition-all duration-300 hover:scale-105 w-fit"
-              >
-                {t("hero.cta")}
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </div>
-
-            {/* Right: Brain Illustration */}
-            <div className="relative flex justify-center z-20">
-              <div className="relative">
-                {/* Glow effect behind brain */}
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-300 via-orange-300 to-violet-300 rounded-full blur-3xl opacity-30 animate-pulse" />
-                
-                {/* Brain image with breathing animation */}
-                <img
-                  src="/images/brain-warm-glowing.png"
-                  alt="AI Brain illustration"
-                  className="w-full max-w-sm drop-shadow-2xl breathing-animation relative z-10"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Wave Banner - Positioned behind content */}
-          <div className="absolute inset-0 top-0 left-0 right-0 z-0 pointer-events-none overflow-hidden">
-            <img
-              src="/images/hero-wave-banner.png"
-              alt="Background wave"
-              className="absolute top-0 left-0 w-full h-full object-cover opacity-70 breathing-animation"
-              style={{
-                transform: 'scaleY(1.3) translateY(-5%)',
-              }}
-            />
-          </div>
-        </div>
+      {/* Hero Section - Clean Minimalist with Reactive Aurora Wave */}
+      <section ref={heroRef} className="relative w-full overflow-hidden bg-white">
+        <ReactiveAuroraHero />
       </section>
 
       {/* Tech Stack Section */}
