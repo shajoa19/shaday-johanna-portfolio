@@ -29,7 +29,7 @@ function ReactiveAuroraHero() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-96 flex items-center justify-center overflow-hidden bg-white"
+      className="relative w-full min-h-[600px] flex items-center justify-center overflow-visible bg-white py-16"
       style={{
         '--gradient-x': '50%',
         '--gradient-y': '50%',
